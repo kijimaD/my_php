@@ -1,44 +1,19 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>check</title>
-    </head>
-    <body>
-        <h1>
-            <?php print ("PHPのprint関数によって出力された"); ?>
-        </h1>
+<?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
 
-        <form method="POST" action="sayhello.php">
-            Your Name: <input type="text" name="user" />
-            <br/>
-            <button type="submitf">Say Hello</button>
-        </form>
+final class StackTest extends TestCase
+{
+    public function testPushAndPop(): void
+    {
+        $stack = [];
+        $this->assertSame(0, count($stack));
 
-        <?php
-        print <<<_HTML_
-        <form method="post" action="$_SERVER[PHP_SELF]">
-            Your Name: <input type="text" name="user" />
-          </br>
-          <button type="submit">Say Hello</button>
-        </form>
-        _HTML_;
-        ?>
+        array_push($stack, 'foo');
+        $this->assertSame('foo', $stack[count($stack)-1]);
+        $this->assertSame(1, count($stack));
 
-        <?php
-        if ($_POST['user']) {
-            print "Hello, ";
-            print $_POST['user'];
-            print "!";
-        } else {
-            print <<<_HTML_
-            <form method="post" action="$_SERVER[PHP_SELF]">
-            Your Name: <input type="text" name="user" />
-            <br/>
-            button
-            </form>
-            _HTML_;
-        }
-        ?> 
-    </body>
-</html>
+        $this->assertSame('foo', array_pop($stack));
+        $this->assertSame(0, count($stack));
+    }
+}
+?>

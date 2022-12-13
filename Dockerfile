@@ -9,3 +9,4 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 COPY ./composer.json ./
 RUN composer install
+RUN composer dump-autoload
