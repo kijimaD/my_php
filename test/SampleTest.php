@@ -15,4 +15,11 @@ class SampleTest extends TestCase
     }
 }
 
+class EntreeTest extends TestCase
+{
+    public function testHasIngredient() {
+        $soup = new Entree('Chiken Soup', array('chiken', 'water'));
+    }
+}
+
 ?>
