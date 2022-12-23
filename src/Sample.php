@@ -2,12 +2,10 @@
 
 namespace app\src;
 
-class Sample 
+class Sample
 {
-    public function hello() 
+    public function hello()
     {
         return "Hello";
     }
 }
-
-?>
