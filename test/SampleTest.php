@@ -14,11 +14,3 @@ class SampleTest extends TestCase
         $this->assertEquals("Hello", $result);
     }
 }
-
-class EntreeTest extends TestCase
-{
-    public function testHasIngredient()
-    {
-        $soup = new Entree('Chiken Soup', array('chiken', 'water'));
-    }
-}
