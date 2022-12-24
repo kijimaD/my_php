@@ -11,8 +11,8 @@ test: ## テストを実行する
 	docker-compose run php ./vendor/bin/phpunit test/
 
 fmt: ## コード整形
-	./vendor/bin/php-cs-fixer fix ./src
-	./vendor/bin/php-cs-fixer fix ./test
+	docker-compose run php ./vendor/bin/php-cs-fixer fix ./src
+	docker-compose run php ./vendor/bin/php-cs-fixer fix ./test
 
 help: ## ヘルプを表示する
 	@echo -e "\e[31m▁▂▃▄▅▆▇▇▇▇ \e[32m🐘PHP🐘 \e[31m▇▇▇▇▆▅▄▃▂▁"
